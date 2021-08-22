@@ -1,0 +1,16 @@
+{
+  "name": "baby-bot",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "@nestjs/common": "^7.0.0",
+    "@nestjs/core": "^7.0.0",
+    "@nestjs/platform-express": "^7.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "~6.6.3",
+    "tslib": "^2.0.0",
+    "twilio": "3.67.0",
+    "firebase-admin": "9.11.0"
+  }
+}

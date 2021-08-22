@@ -13,7 +13,11 @@
             "outputPath": "dist/apps/server",
             "main": "apps/server/src/main.ts",
             "tsConfig": "apps/server/tsconfig.app.json",
-            "assets": ["apps/server/src/assets"]
+            "assets": [
+              "apps/server/src/assets",
+              "apps/server/src/app.yaml",
+              "apps/server/src/package.json"
+            ]
           },
           "configurations": {
             "production": {
