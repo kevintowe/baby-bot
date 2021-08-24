@@ -14,7 +14,15 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@baby-bot/app-config": ["libs/app-config/src/index.ts"],
+      "@baby-bot/database": ["libs/database/src/index.ts"],
+      "@baby-bot/sms": ["libs/sms/src/index.ts"],
+      "@baby-bot/twilio-client": ["libs/twilio-client/src/index.ts"],
+      "@baby-bot/types": ["libs/types/src/index.ts"],
+      "@baby-bot/user-config": ["libs/user-config/src/index.ts"],
+      "@baby-bot/voice": ["libs/voice/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

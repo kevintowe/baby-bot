@@ -1,36 +1,34 @@
 import { DynamicModule, Module } from '@nestjs/common';
-import { Twilio } from 'twilio';
 
-import { DatabaseModule } from './database.module';
-import { AppController } from './app.controller';
+import { AppBootConfig } from '@baby-bot/types';
+import { DatabaseModule } from '@baby-bot/database';
+import { TwilioClientModule } from '@baby-bot/twilio-client';
+import { VoiceModule } from '@baby-bot/voice';
+import { SmsModule } from '@baby-bot/sms';
+
 import { TwilioWebhookController } from './twilio-webhook.controller';
 import { AppService } from './app.service';
-import { Config } from '../main';
 
 @Module({
-  imports: [DatabaseModule.forRoot()],
-  controllers: [AppController, TwilioWebhookController],
+  imports: [VoiceModule, SmsModule],
+  controllers: [TwilioWebhookController],
   providers: [AppService],
 })
 export class AppModule {
-  static forRoot(config: Config): DynamicModule {
+  static forRoot(config: AppBootConfig): DynamicModule {
     return {
       module: AppModule,
+      imports: [
+        DatabaseModule.forRoot(),
+        TwilioClientModule.forRoot(
+          config.twilioAccountSid,
+          config.twilioAuthToken
+        ),
+      ],
       providers: [
         {
           provide: 'CONFIG',
           useValue: config,
-        },
-        {
-          provide: 'TWILIO_CLIENT',
-          useFactory: (config: Config) => {
-            const twilioClient = new Twilio(
-              config.twilioAccountSid,
-              config.twilioAuthToken
-            );
-            return twilioClient;
-          },
-          inject: ['CONFIG'],
         },
       ],
     };

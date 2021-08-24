@@ -27,7 +27,28 @@
     ]
   },
   "projects": {
+    "app-config": {
+      "tags": []
+    },
+    "database": {
+      "tags": []
+    },
     "server": {
+      "tags": []
+    },
+    "sms": {
+      "tags": []
+    },
+    "twilio-client": {
+      "tags": []
+    },
+    "types": {
+      "tags": []
+    },
+    "user-config": {
+      "tags": []
+    },
+    "voice": {
       "tags": []
     }
   }

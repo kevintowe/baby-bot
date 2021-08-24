@@ -1,18 +1,16 @@
-import { Controller, Inject, Post, Req, Res } from '@nestjs/common';
-import { Request, Response } from 'express';
+import { Controller, Inject, Post, Req } from '@nestjs/common';
+import { Request } from 'express';
 import { Twilio } from 'twilio';
-import { Config } from '../main';
-import { AppService } from './app.service';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const VoiceResponse = require('twilio').twiml.VoiceResponse;
+import { AppBootConfig } from '@baby-bot/types';
+import { AppService } from './app.service';
 
 @Controller('twilio')
 export class TwilioWebhookController {
   constructor(
     private appService: AppService,
     @Inject('TWILIO_CLIENT') private client: Twilio,
-    @Inject('CONFIG') private config: Config
+    @Inject('CONFIG') private config: AppBootConfig
   ) {
     return;
   }
@@ -131,36 +129,5 @@ export class TwilioWebhookController {
         to: fromNumber,
       });
     }
-  }
-
-  @Post('voice')
-  async twilioVoice(@Req() request: Request, @Res() response: Response) {
-    const body = request.body as any;
-    const fromNumber = body.From;
-
-    this.client.messages.create({
-      body: `${fromNumber} called baby bot.`,
-      from: this.config.babyBotNumber,
-      to: `+19723456443`,
-    });
-    this.client.messages.create({
-      body: `${fromNumber} called baby bot.`,
-      from: this.config.babyBotNumber,
-      to: `+19728217217`,
-    });
-
-    if (!this.appService.isRegisteredNumber(fromNumber)) {
-      await this.appService.registerUser(fromNumber);
-      this.client.messages.create({
-        body: `Hi I'm baby Towe!`,
-        from: this.config.babyBotNumber,
-        to: fromNumber,
-      });
-    }
-
-    const twiml = new VoiceResponse();
-    twiml.say(this.appService.getVoiceGreeting());
-    response.writeHead(200, { 'Content-Type': 'text/xml' });
-    response.end(twiml.toString());
   }
 }

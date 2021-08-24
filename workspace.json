@@ -1,6 +1,70 @@
 {
   "version": 2,
   "projects": {
+    "app-config": {
+      "root": "libs/app-config",
+      "sourceRoot": "libs/app-config/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/app-config",
+            "tsConfig": "libs/app-config/tsconfig.lib.json",
+            "packageJson": "libs/app-config/package.json",
+            "main": "libs/app-config/src/index.ts",
+            "assets": ["libs/app-config/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/app-config/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app-config"],
+          "options": {
+            "jestConfig": "libs/app-config/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "database": {
+      "root": "libs/database",
+      "sourceRoot": "libs/database/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/database",
+            "tsConfig": "libs/database/tsconfig.lib.json",
+            "packageJson": "libs/database/package.json",
+            "main": "libs/database/src/index.ts",
+            "assets": ["libs/database/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/database/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/database"],
+          "options": {
+            "jestConfig": "libs/database/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "server": {
       "root": "apps/server",
       "sourceRoot": "apps/server/src",
@@ -50,6 +114,166 @@
           "outputs": ["coverage/apps/server"],
           "options": {
             "jestConfig": "apps/server/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "sms": {
+      "root": "libs/sms",
+      "sourceRoot": "libs/sms/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/sms",
+            "tsConfig": "libs/sms/tsconfig.lib.json",
+            "packageJson": "libs/sms/package.json",
+            "main": "libs/sms/src/index.ts",
+            "assets": ["libs/sms/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/sms/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/sms"],
+          "options": {
+            "jestConfig": "libs/sms/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "twilio-client": {
+      "root": "libs/twilio-client",
+      "sourceRoot": "libs/twilio-client/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/twilio-client",
+            "tsConfig": "libs/twilio-client/tsconfig.lib.json",
+            "packageJson": "libs/twilio-client/package.json",
+            "main": "libs/twilio-client/src/index.ts",
+            "assets": ["libs/twilio-client/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/twilio-client/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/twilio-client"],
+          "options": {
+            "jestConfig": "libs/twilio-client/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "types": {
+      "root": "libs/types",
+      "sourceRoot": "libs/types/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/types",
+            "tsConfig": "libs/types/tsconfig.lib.json",
+            "packageJson": "libs/types/package.json",
+            "main": "libs/types/src/index.ts",
+            "assets": ["libs/types/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/types/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/types"],
+          "options": {
+            "jestConfig": "libs/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "user-config": {
+      "root": "libs/user-config",
+      "sourceRoot": "libs/user-config/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/user-config",
+            "tsConfig": "libs/user-config/tsconfig.lib.json",
+            "packageJson": "libs/user-config/package.json",
+            "main": "libs/user-config/src/index.ts",
+            "assets": ["libs/user-config/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/user-config/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/user-config"],
+          "options": {
+            "jestConfig": "libs/user-config/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "voice": {
+      "root": "libs/voice",
+      "sourceRoot": "libs/voice/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/voice",
+            "tsConfig": "libs/voice/tsconfig.lib.json",
+            "packageJson": "libs/voice/package.json",
+            "main": "libs/voice/src/index.ts",
+            "assets": ["libs/voice/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/voice/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/voice"],
+          "options": {
+            "jestConfig": "libs/voice/jest.config.js",
             "passWithNoTests": true
           }
         }
