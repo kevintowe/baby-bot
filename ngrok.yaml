@@ -1,6 +1,0 @@
-authtoken: 7N4e93aMsyRCRoQh8zoRe_7D6MxE19pLvXuvc357Khc
-tunnels:
-  baby-bot-server:
-    addr: 3333
-    proto: http
-    subdomain: baby-bot-server
