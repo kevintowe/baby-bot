@@ -4,6 +4,7 @@ on:
   push:
     branches:
       # - master
+      - doesntExist
 
 jobs:
   firebase-deploy:
