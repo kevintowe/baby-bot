@@ -12,7 +12,7 @@ export interface Config {
 const CONFIG: Config = {
   twilioAccountSid: process.env.TWILIO_ACCOUNT_SID,
   twilioAuthToken: process.env.TWILIO_AUTH_TOKEN,
-  babyBotNumber: process.env.BABY_BOT_NUMBER,
+  babyBotNumber: process.env.BABY_BOT_NUMBER || null,
 };
 
 async function bootstrap() {
