@@ -33,6 +33,16 @@
     "database": {
       "tags": []
     },
+    "material": {
+      "tags": []
+    },
+    "pwa": {
+      "tags": []
+    },
+    "pwa-e2e": {
+      "tags": [],
+      "implicitDependencies": ["pwa"]
+    },
     "server": {
       "tags": []
     },

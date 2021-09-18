@@ -17,6 +17,7 @@
     "paths": {
       "@baby-bot/app-config": ["libs/app-config/src/index.ts"],
       "@baby-bot/database": ["libs/database/src/index.ts"],
+      "@baby-bot/front-end/material": ["libs/front-end/material/src/index.ts"],
       "@baby-bot/sms": ["libs/sms/src/index.ts"],
       "@baby-bot/twilio-client": ["libs/twilio-client/src/index.ts"],
       "@baby-bot/types": ["libs/types/src/index.ts"],
