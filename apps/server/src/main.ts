@@ -9,14 +9,10 @@ export interface Config {
   babyBotNumber: string;
 }
 
-const TWILIO_ACCOUNT_SID = 'AC1a840fe60f69326cfc713eaa4053a9ad';
-const TWILIO_AUTH_TOKEN = '9da262e8d5b97e1752f9bf8cee9f2bf5';
-const BABY_BOT_NUMBER = '+19722174871';
-
 const CONFIG: Config = {
-  twilioAccountSid: TWILIO_ACCOUNT_SID,
-  twilioAuthToken: TWILIO_AUTH_TOKEN,
-  babyBotNumber: BABY_BOT_NUMBER,
+  twilioAccountSid: process.env.TWILIO_ACCOUNT_SID,
+  twilioAuthToken: process.env.TWILIO_AUTH_TOKEN,
+  babyBotNumber: process.env.BABY_BOT_NUMBER,
 };
 
 async function bootstrap() {
