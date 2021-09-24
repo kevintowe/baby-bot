@@ -36,6 +36,9 @@
     "material": {
       "tags": []
     },
+    "phone-number-provisioning": {
+      "tags": []
+    },
     "pwa": {
       "tags": []
     },
@@ -50,6 +53,9 @@
       "tags": []
     },
     "twilio-client": {
+      "tags": []
+    },
+    "twiml-gateway": {
       "tags": []
     },
     "types": {

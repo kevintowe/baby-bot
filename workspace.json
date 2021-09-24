@@ -90,6 +90,56 @@
         }
       }
     },
+    "phone-number-provisioning": {
+      "root": "apps/phone-number-provisioning",
+      "sourceRoot": "apps/phone-number-provisioning/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/phone-number-provisioning",
+            "main": "apps/phone-number-provisioning/src/main.ts",
+            "tsConfig": "apps/phone-number-provisioning/tsconfig.app.json",
+            "assets": ["apps/phone-number-provisioning/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/phone-number-provisioning/src/environments/environment.ts",
+                  "with": "apps/phone-number-provisioning/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "phone-number-provisioning:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/phone-number-provisioning/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/phone-number-provisioning"],
+          "options": {
+            "jestConfig": "apps/phone-number-provisioning/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "pwa": {
       "projectType": "application",
       "root": "apps/pwa",
@@ -320,6 +370,56 @@
           "outputs": ["coverage/libs/twilio-client"],
           "options": {
             "jestConfig": "libs/twilio-client/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "twiml-gateway": {
+      "root": "apps/twiml-gateway",
+      "sourceRoot": "apps/twiml-gateway/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/twiml-gateway",
+            "main": "apps/twiml-gateway/src/main.ts",
+            "tsConfig": "apps/twiml-gateway/tsconfig.app.json",
+            "assets": ["apps/twiml-gateway/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/twiml-gateway/src/environments/environment.ts",
+                  "with": "apps/twiml-gateway/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "twiml-gateway:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/twiml-gateway/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/twiml-gateway"],
+          "options": {
+            "jestConfig": "apps/twiml-gateway/jest.config.js",
             "passWithNoTests": true
           }
         }

@@ -38,3 +38,5 @@ testem.log
 .DS_Store
 Thumbs.db
 baby-bot-d8ef9-firebase-adminsdk-rpk2d-56e3c25a9b.json
+apps/pwa/src/environments/environment.ts
+apps/pwa/src/environments/environment.prod.ts
